@@ -2,8 +2,14 @@
 name: 👽️ Android CI
 
 on:
-  push: [ main, develop ]
-  pull_request: [ main, develop ]
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
 
 jobs:
   build:
