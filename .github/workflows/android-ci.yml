@@ -1,0 +1,32 @@
+name: 👽️ Android CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build:
+    name: 🚧 Build Project
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: 🔧 Give execute permission to gradlew
+        run: chmod +x gradlew
+
+      - name: 🔧 Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: "17"
+
+      - name: 🏗️ Build the Project
+        run: ./gradlew assemble
