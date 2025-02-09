@@ -1,3 +1,6 @@
+import io.gitlab.arturbosch.detekt.Detekt
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -44,10 +47,10 @@ android {
         checkReleaseBuilds = true
         warningsAsErrors = true
         lintConfig = rootProject.file("config/lint.xml")
+        sarifReport = true
         htmlReport = true
-        htmlOutput = rootProject.file("config/reports/lint-report.html")
-        xmlReport = true
-        xmlOutput = rootProject.file("config/reports/lint-report.xml")
+        xmlReport = false
+        textReport = false
     }
 }
 
@@ -56,6 +59,10 @@ ktlint {
     verbose.set(true)
     outputToConsole.set(true)
     ignoreFailures.set(false)
+    reporters {
+        reporter(ReporterType.SARIF)
+        reporter(ReporterType.HTML)
+    }
 }
 
 detekt {
@@ -64,6 +71,13 @@ detekt {
     buildUponDefaultConfig = true
     allRules = false
     autoCorrect = true
+}
+
+tasks.withType<Detekt>().configureEach {
+    reports {
+        sarif.required.set(true)
+        html.required.set(true)
+    }
 }
 
 dependencies {
