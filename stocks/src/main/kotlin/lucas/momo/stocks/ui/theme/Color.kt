@@ -1,6 +1,4 @@
-@file:Suppress("MagicNumber")
-
-package lucas.momo.mia.ui.theme
+package lucas.momo.stocks.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
