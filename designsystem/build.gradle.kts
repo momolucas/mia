@@ -1,15 +1,11 @@
-import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.ktlint)
-    alias(libs.plugins.detekt)
 }
 
 android {
-    namespace = "lucas.momo.stocks"
+    namespace = "lucas.momo.designsystem"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -63,42 +59,13 @@ android {
     }
 }
 
-ktlint {
-    android.set(true)
-    verbose.set(true)
-    outputToConsole.set(true)
-    ignoreFailures.set(false)
-    reporters {
-        reporter(ReporterType.SARIF)
-        reporter(ReporterType.HTML)
-    }
-}
-
-detekt {
-    toolVersion = libs.versions.detekt.get()
-    config.setFrom(rootProject.files("config/detekt.yml"))
-    buildUponDefaultConfig = true
-    allRules = false
-    autoCorrect = true
-}
-
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
-    implementation(project(":designsystem"))
 }

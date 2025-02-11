@@ -7,9 +7,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -17,8 +17,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import lucas.momo.mia.ui.theme.MiaTheme
+import lucas.momo.designsystem.theme.LocalDimens
+import lucas.momo.designsystem.theme.MiaTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,11 +28,12 @@ class MainActivity : ComponentActivity() {
             MiaTheme {
                 val context = LocalContext.current
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    val dimens = LocalDimens.current
                     Box(modifier = Modifier.padding(innerPadding)) {
                         Button(
                             modifier = Modifier
-                                .height(50.dp)
-                                .width(100.dp),
+                                .height(dimens.buttonHeight)
+                                .fillMaxWidth(),
                             onClick = {
                                 context.startActivity(
                                     Intent(context, lucas.momo.stocks.StocksActivity::class.java)

@@ -4,8 +4,7 @@
     <application>
         <activity
             android:name=".StocksActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Mia" />
+            android:exported="true"/>
     </application>
 
 </manifest>
