@@ -19,7 +19,4 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
-
--dontwarn lucas.momo.designsystem.theme.DimensKt
--dontwarn lucas.momo.designsystem.theme.Dimensions
--dontwarn lucas.momo.designsystem.theme.ThemeKt
+-dontwarn java.lang.invoke.StringConcatFactory
