@@ -20,3 +20,6 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -dontwarn java.lang.invoke.StringConcatFactory
+-dontwarn lucas.momo.designsystem.theme.ThemeKt
+-dontwarn lucas.momo.designsystem.theme.DimensKt
+-dontwarn lucas.momo.designsystem.theme.Dimensions

@@ -17,4 +17,5 @@
     <issue id="Overdraw" severity="warning" />  <!-- Detects overdraw issues. -->
 
     <issue id="GradleDependency" severity="ignore" />
+    <issue id="InvalidPackage" severity="ignore" />
 </lint>
