@@ -23,3 +23,14 @@
 -dontwarn lucas.momo.designsystem.theme.DimensKt
 -dontwarn lucas.momo.designsystem.theme.Dimensions
 -dontwarn lucas.momo.designsystem.theme.ThemeKt
+-dontwarn lucas.momo.stocks.StocksActivity_GeneratedInjector
+-dontwarn lucas.momo.stocks.data.network.TwelveDataApi
+-dontwarn lucas.momo.stocks.data.repositories.StockExchangeRepository
+-dontwarn lucas.momo.stocks.di.AppModule_ProvideGetStockExchangeUseCaseFactory
+-dontwarn lucas.momo.stocks.di.AppModule_ProvideStockExchangeRepositoryFactory
+-dontwarn lucas.momo.stocks.di.AppModule_ProvideTwelveDataApiFactory
+-dontwarn lucas.momo.stocks.domain.usecases.GetStockExchangeUseCase
+-dontwarn lucas.momo.stocks.presentation.viewmodels.StockExchangeViewModel
+-dontwarn lucas.momo.stocks.presentation.viewmodels.StockExchangeViewModel_HiltModules$KeyModule
+-dontwarn lucas.momo.stocks.presentation.viewmodels.StockExchangeViewModel_HiltModules_BindsModule_Binds_LazyMapKey
+-dontwarn lucas.momo.stocks.presentation.viewmodels.StockExchangeViewModel_HiltModules_KeyModule_Provide_LazyMapKey

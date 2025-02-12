@@ -14,12 +14,15 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import dagger.hilt.android.AndroidEntryPoint
 import lucas.momo.designsystem.theme.LocalDimens
 import lucas.momo.designsystem.theme.MiaTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +36,8 @@ class MainActivity : ComponentActivity() {
                         Button(
                             modifier = Modifier
                                 .height(dimens.buttonHeight)
-                                .fillMaxWidth(),
+                                .fillMaxWidth()
+                                .align(Alignment.Center),
                             onClick = {
                                 context.startActivity(
                                     Intent(context, lucas.momo.stocks.StocksActivity::class.java)
