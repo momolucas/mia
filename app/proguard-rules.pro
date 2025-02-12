@@ -34,3 +34,4 @@
 -dontwarn lucas.momo.stocks.presentation.viewmodels.StockExchangeViewModel_HiltModules$KeyModule
 -dontwarn lucas.momo.stocks.presentation.viewmodels.StockExchangeViewModel_HiltModules_BindsModule_Binds_LazyMapKey
 -dontwarn lucas.momo.stocks.presentation.viewmodels.StockExchangeViewModel_HiltModules_KeyModule_Provide_LazyMapKey
+-dontwarn lucas.momo.stocks.presentation.ui.StocksActivity_GeneratedInjector
