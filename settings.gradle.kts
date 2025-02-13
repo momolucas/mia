@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "mia"
 include(":app")
+include(":stocks")
+include(":designsystem")

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <issue id="HardcodedText" severity="error" />  <!-- Detects hardcoded text. -->
+    <issue id="UnusedResources" severity="error" />  <!-- Flags unused resources. -->
+    <issue id="MissingTranslation" severity="error" />  <!-- Detects missing translations. -->
+    <issue id="ObsoleteLayoutParam" severity="error" />  <!-- Flags obsolete layout parameters. -->
+    <issue id="InvalidPackage" severity="error" />  <!-- Detects invalid package names. -->
+    <issue id="UnusedIds" severity="error" />  <!-- Flags unused IDs. -->
+    <issue id="DuplicateIds" severity="error" />  <!-- Detects duplicate IDs. -->
+    <issue id="MissingPrefix" severity="error" />  <!-- Flags missing prefixes in resource names. -->
+    <issue id="Typos" severity="error" />  <!-- Detects typos in resource names. -->
+    <issue id="UnknownIssueId" severity="error" />  <!-- Flags unknown issue IDs. -->
+    <issue id="ComposableNaming" severity="error" />  <!-- Checks naming of Composables. -->
+    <issue id="CompositionLocalNaming" severity="error" />
+
+    <issue id="IconDensities" severity="warning" />  <!-- Flags missing icon densities. -->
+    <issue id="Overdraw" severity="warning" />  <!-- Detects overdraw issues. -->
+
+    <issue id="GradleDependency" severity="ignore" />
+    <issue id="InvalidPackage" severity="ignore" />
+</lint>
