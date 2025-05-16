@@ -21,7 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import dagger.hilt.android.AndroidEntryPoint
 import lucas.momo.designsystem.theme.LocalDimens
 import lucas.momo.designsystem.theme.MiaTheme
-import lucas.momo.stocks.presentation.ui.StocksActivity
+import lucas.momo.fixedincome.FixedIncomeActivity
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -59,7 +59,7 @@ class MainActivity : ComponentActivity() {
                                     context.startActivity(
                                         Intent(
                                             context,
-                                            StocksActivity::class.java
+                                            FixedIncomeActivity::class.java
                                         )
                                     )
                                 }
