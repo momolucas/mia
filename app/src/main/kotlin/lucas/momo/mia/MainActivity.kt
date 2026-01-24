@@ -21,7 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import dagger.hilt.android.AndroidEntryPoint
 import lucas.momo.designsystem.theme.LocalDimens
 import lucas.momo.designsystem.theme.MiaTheme
-import lucas.momo.fixedincome.FixedIncomeActivity
+import lucas.momo.fixedincome.presentation.ui.FixedIncomeActivity
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

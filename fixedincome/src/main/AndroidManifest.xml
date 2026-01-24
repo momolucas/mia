@@ -3,7 +3,7 @@
 
     <application>
         <activity
-            android:name=".FixedIncomeActivity"
+            android:name=".presentation.ui.FixedIncomeActivity"
             android:exported="false"
             android:label="@string/title_activity_fixed_income"
             android:theme="@style/Theme.Mia" />

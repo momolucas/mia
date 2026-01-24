@@ -14,3 +14,5 @@
 .cxx
 local.properties
 /config/reports
+# Firebase
+app/google-services.json
