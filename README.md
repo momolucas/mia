@@ -1,55 +1,77 @@
 # Mia 📈💰
+Mia is an Android application developed to assist investors in managing their portfolios and declaring Income Tax. The project follows **Clean Architecture** and is structured into modules to ensure better organization and scalability.
 
-Mia é um aplicativo Android desenvolvido para auxiliar investidores na gestão de seus investimentos e na declaração do Imposto de Renda. O projeto segue a arquitetura Clean e está estruturado em módulos para melhor organização e escalabilidade.
+## 📂 Project Structure
+The project is divided into the following modules:
+- **app**: The main module that integrates the other modules and contains the presentation layer.
+- **designsystem**: Contains the reusable UI components of the project.
+- **fixedincome**: The module responsible for managing fixed income investments.
+- **stocks**: Responsible for features related to stocks and investments.
 
-## 📂 Estrutura do Projeto
+```text
+Root Project/
+├── build.gradle.kts            
+├── settings.gradle.kts        
+│
+├── app/                      
+│   ├── build.gradle.kts         
+│   └── src/main/kotlin/lucas/momo/mia
+│       ├── di/                  
+│       ├── navigation/          
+│       └── MainActivity.kt
+│
+├── designsystem/                        
+│   ├── build.gradle.kts
+│   └── src/main/kotlin/lucas/momo/designsystem/
+│       ├── components/   
+│       ├── theme/             
+│       └── utils/            
+│
+└── fixedincome/                         
+    ├── build.gradle.kts                 
+    └── src/main/kotlin/lucas/momo/fixedincome/
+        ├── data/                       
+        │   ├── repository/              
+        │   ├── remote/                 
+        │   ├── local/                  
+        │   └── mapper/                
+        │
+        ├── di/                          
+        │   └── FixedIncomeModule.kt
+        │
+        ├── domain/                     
+        │   ├── model/                   
+        │   ├── repository/            
+        │   └── usecase/               
+        │
+        └── presentation/               
+            ├── list/                    
+            ├── create/                  
+            └── navigation/              
+```
 
-O projeto está dividido nos seguintes módulos:
-
-- **app**: Módulo principal que integra os demais módulos e contém a camada de apresentação.
-- **designsystem**: Contém os componentes de UI reutilizáveis do projeto.
-- **stocks**: Responsável por funcionalidades relacionadas a ações e investimentos.
-
-Dentro de cada módulo, seguimos a seguinte estrutura de diretórios:
-
-- **data**: Implementação da camada de dados, incluindo repositórios e fontes de dados.
-- **di**: Configuração de injeção de dependências.
-- **domain**: Contém os casos de uso e modelos de domínio.
-- **extensions**: Extensões utilitárias para facilitar o desenvolvimento.
-- **presenter**: Implementação da camada de apresentação utilizando Jetpack Compose.
-
-## 🚀 Padrão de GitFlow e Commits
-
-O projeto segue o **padrão de commit atômico** e utilizamos **Gitmoji** para identificar a finalidade de cada commit:
+## 🚀 GitFlow & Commit Pattern
+The project follows the atomic commit pattern and uses Gitmoji to identify the purpose of each commit:
 
 | Emoji         | Significado                                      |
 |--------------|------------------------------------------------|
-| ✨ `:sparkles:` | Implementação de novas features               |
-| 🐛 `:bug:`    | Correção de bugs                              |
-| 🚀 `:rocket:` | Releases de novas versões                     |
-| 🔧 `:wrench:` | Configurações do projeto                      |
-| 🔨 `:hammer:` | Ajustes de ferramentas externas (ex: CI/CD)   |
-| 🧪 `:test_tube:` | Criação ou edição de testes                 |
-| 📦 `:card_file_box:` | Documentação do projeto                 |
-| 🎉 `:tada:`  | Início do projeto                              |
+| ✨ `:sparkles:` | Implementation of new features               |
+| 🐛 `:bug:`    | Bug fixes                              |
+| 🚀 `:rocket:` | New version releases                     |
+| 🔧 `:wrench:` | Project configuration                      |
+| 🔨 `:hammer:` | Adjustments to external tools (e.g., CI/CD)   |
+| 🧪 `:test_tube:` | Creation or editing of tests                 |
+| 📦 `:card_file_box:` | Project documentation                 |
+| 🎉 `:tada:`  | Project kickoff                              |
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tech Stack
+- **Language:** Kotlin
+  - **UI:** Jetpack Compose
+  - **Dependency Injection:** Hilt
+  - **Architecture:** Clean Architecture
+  - **State Management:** Flow + ViewModel
+  - **Networking:** Ktor
+  - **Build System:** Gradle Kotlin DSL with Version Catalog
 
-- **Linguagem**: Kotlin
-- **UI**: Jetpack Compose
-- **Injeção de Dependência**: Hilt
-- **Arquitetura**: Clean Architecture
-- **Gerenciamento de Estados**: Flow + ViewModel
-- **Networking**: Ktor
-- **Build System**: Gradle Kotlin DSL com version catalog
-
-## 📌 Como Contribuir
-
-1. Faça um fork do repositório.
-2. Crie uma branch para sua feature (`git checkout -b feat/minha-feature`).
-3. Realize as alterações necessárias e faça commits seguindo o padrão Gitmoji.
-4. Envie um pull request para análise.
-
-## 📄 Licença
-
-Este projeto está licenciado sob a [Apache-2.0](LICENSE).
+## 📄 License
+This project is licensed under the **Apache-2.0** license.
