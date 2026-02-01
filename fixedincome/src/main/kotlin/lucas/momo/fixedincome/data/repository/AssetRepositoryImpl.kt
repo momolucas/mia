@@ -1,20 +1,20 @@
 package lucas.momo.fixedincome.data.repository
 
 import com.google.firebase.firestore.FirebaseFirestore
-import javax.inject.Inject
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import lucas.momo.fixedincome.common.Firestore
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset
-import lucas.momo.fixedincome.data.model.toFixedIncomeAsset
-import lucas.momo.fixedincome.domain.repository.InvestmentRepository
+import lucas.momo.fixedincome.data.model.AssetDocument
+import lucas.momo.fixedincome.data.model.toAssetDocument
+import lucas.momo.fixedincome.domain.repository.AssetRepository
+import javax.inject.Inject
 
-class InvestmentRepositoryImpl @Inject constructor(
+class AssetRepositoryImpl @Inject constructor(
     private val firestore: FirebaseFirestore
-) : InvestmentRepository {
+) : AssetRepository {
 
-    override fun observeFixedIncomeAssets(): Flow<List<FixedIncomeAsset>> {
+    override fun observeAssets(): Flow<List<AssetDocument>> {
         return callbackFlow {
             val subCollectionRef = firestore.collection(Firestore.Collections.INVESTMENTS)
                 .document(Firestore.Documents.FIXED_INCOME)
@@ -27,7 +27,7 @@ class InvestmentRepositoryImpl @Inject constructor(
                 }
 
                 snapshot?.run {
-                    val assets = documents.mapNotNull { it.toFixedIncomeAsset() }
+                    val assets = documents.mapNotNull { it.toAssetDocument() }
                     trySend(assets)
                 }
             }
