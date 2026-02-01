@@ -1,36 +1,51 @@
 package lucas.momo.fixedincome.data.model
 
 import android.util.Log
+import com.google.firebase.firestore.DocumentId
 import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.PropertyName
 import java.math.BigDecimal
 import java.time.Instant
 import lucas.momo.fixedincome.common.toInstantOrNull
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset.Companion.FIELD_ACQUISITION_DATE
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset.Companion.FIELD_ASSET_PRICE_AT_PURCHASE
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset.Companion.FIELD_BROKERAGE
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset.Companion.FIELD_INDEXER
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset.Companion.FIELD_INTEREST_AND_AMORTIZATION
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset.Companion.FIELD_INVESTMENT_AMOUNT
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset.Companion.FIELD_MATURITY_DATE
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset.Companion.FIELD_NAME
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset.Companion.FIELD_STATUS
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset.Companion.FIELD_TYPE
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset.Companion.FIELD_YIELD
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset.Companion.FIELD_YIELD_TYPE
+import lucas.momo.fixedincome.data.model.AssetDocument.Companion.FIELD_ACQUISITION_DATE
+import lucas.momo.fixedincome.data.model.AssetDocument.Companion.FIELD_ASSET_PRICE_AT_PURCHASE
+import lucas.momo.fixedincome.data.model.AssetDocument.Companion.FIELD_BROKERAGE
+import lucas.momo.fixedincome.data.model.AssetDocument.Companion.FIELD_INDEXER
+import lucas.momo.fixedincome.data.model.AssetDocument.Companion.FIELD_INTEREST_AND_AMORTIZATION
+import lucas.momo.fixedincome.data.model.AssetDocument.Companion.FIELD_INVESTMENT_AMOUNT
+import lucas.momo.fixedincome.data.model.AssetDocument.Companion.FIELD_MATURITY_DATE
+import lucas.momo.fixedincome.data.model.AssetDocument.Companion.FIELD_NAME
+import lucas.momo.fixedincome.data.model.AssetDocument.Companion.FIELD_STATUS
+import lucas.momo.fixedincome.data.model.AssetDocument.Companion.FIELD_TYPE
+import lucas.momo.fixedincome.data.model.AssetDocument.Companion.FIELD_YIELD
+import lucas.momo.fixedincome.data.model.AssetDocument.Companion.FIELD_YIELD_TYPE
 
-data class FixedIncomeAsset(
+data class AssetDocument(
+    @DocumentId
     val id: String,
+    @PropertyName(FIELD_ACQUISITION_DATE)
     val acquisitionDate: Instant,
+    @PropertyName(FIELD_ASSET_PRICE_AT_PURCHASE)
     val assetPriceAtPurchase: BigDecimal,
+    @PropertyName(FIELD_BROKERAGE)
     val brokerage: String,
+    @PropertyName(FIELD_INDEXER)
     val indexer: String,
+    @PropertyName(FIELD_INTEREST_AND_AMORTIZATION)
     val interestAndAmortization: BigDecimal,
+    @PropertyName(FIELD_INVESTMENT_AMOUNT)
     val investedAmount: BigDecimal,
+    @PropertyName(FIELD_MATURITY_DATE)
     val maturityDate: Instant,
+    @PropertyName(FIELD_NAME)
     val name: String,
+    @PropertyName(FIELD_STATUS)
     val status: Boolean,
+    @PropertyName(FIELD_TYPE)
     val type: String,
+    @PropertyName(FIELD_YIELD)
     val yield: String,
+    @PropertyName(FIELD_YIELD_TYPE)
     val yieldType: String
 ) {
     companion object {
@@ -49,9 +64,9 @@ data class FixedIncomeAsset(
     }
 }
 
-fun DocumentSnapshot.toFixedIncomeAsset(): FixedIncomeAsset? {
+fun DocumentSnapshot.toAssetDocument(): AssetDocument? {
     return runCatching {
-        FixedIncomeAsset(
+        AssetDocument(
             id = this.id,
             acquisitionDate = this.getTimestamp(FIELD_ACQUISITION_DATE).toInstantOrNull()
                 ?: error(FIELD_ACQUISITION_DATE),
