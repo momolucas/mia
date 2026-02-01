@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text_field_required_field">This field is required</string>
+
+    <!-- Content description -->
+    <string name="content_description_error">Error</string>
+</resources>

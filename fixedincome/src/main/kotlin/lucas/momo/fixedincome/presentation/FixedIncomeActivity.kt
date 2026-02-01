@@ -7,13 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
 import lucas.momo.designsystem.theme.MiaTheme
-import lucas.momo.fixedincome.presentation.list.AssetListScreen
+import lucas.momo.fixedincome.presentation.form.AssetFormScreen
 
 @AndroidEntryPoint
 class FixedIncomeActivity : ComponentActivity() {
@@ -23,25 +20,9 @@ class FixedIncomeActivity : ComponentActivity() {
         setContent {
             MiaTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    AssetListScreen(modifier = Modifier.padding(innerPadding))
+                    AssetFormScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(modifier: Modifier = Modifier) {
-    Text(
-        text = "FixedIncome",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MiaTheme {
-        Greeting()
     }
 }

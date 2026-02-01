@@ -3,7 +3,7 @@ activityCompose = "1.10.0"
 agp = "8.8.0"
 androidxArchCoreTesting = "2.1.0"
 appcompat = "1.6.1"
-composeBom = "2025.01.01"
+composeBom = "2026.01.01"
 coreKtx = "1.15.0"
 detekt = "1.23.7"
 espressoCore = "3.6.1"
@@ -52,6 +52,7 @@ hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", ve
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
 
 # DI
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
