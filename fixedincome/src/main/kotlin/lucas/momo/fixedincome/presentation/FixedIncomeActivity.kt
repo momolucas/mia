@@ -1,4 +1,4 @@
-package lucas.momo.fixedincome.presentation.ui
+package lucas.momo.fixedincome.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
 import lucas.momo.designsystem.theme.MiaTheme
+import lucas.momo.fixedincome.presentation.list.AssetListScreen
 
 @AndroidEntryPoint
 class FixedIncomeActivity : ComponentActivity() {
@@ -22,7 +23,7 @@ class FixedIncomeActivity : ComponentActivity() {
         setContent {
             MiaTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    FixedIncomeScreen(modifier = Modifier.padding(innerPadding))
+                    AssetListScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
         }

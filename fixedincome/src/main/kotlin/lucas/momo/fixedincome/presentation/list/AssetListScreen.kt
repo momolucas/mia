@@ -1,4 +1,4 @@
-package lucas.momo.fixedincome.presentation.ui
+package lucas.momo.fixedincome.presentation.list
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.lazy.LazyColumn
@@ -12,13 +12,12 @@ import lucas.momo.designsystem.components.ResumeListItem
 import lucas.momo.designsystem.components.ResumeListItemData
 import lucas.momo.designsystem.utils.toBrazilianDate
 import lucas.momo.designsystem.utils.toBrazilianReal
-import lucas.momo.fixedincome.data.model.FixedIncomeAsset
-import lucas.momo.fixedincome.presentation.viewmodels.FixedIncomeViewModel
+import lucas.momo.fixedincome.data.model.AssetDocument
 
 @Composable
-fun FixedIncomeScreen(
+fun AssetListScreen(
     modifier: Modifier = Modifier,
-    viewModel: FixedIncomeViewModel = hiltViewModel()
+    viewModel: AssetListViewModel = hiltViewModel()
 ) {
     val uiState = viewModel.uiState.collectAsState()
 
@@ -27,21 +26,21 @@ fun FixedIncomeScreen(
     }
 
     when (val state = uiState.value) {
-        is FixedIncomeViewModel.UiState.Loading -> {}
+        is AssetListViewModel.UiState.Loading -> {}
 
-        is FixedIncomeViewModel.UiState.Success -> {
-            FixedIncomeSuccess(modifier, state.fixedIncomes)
+        is AssetListViewModel.UiState.Success -> {
+            AssetListSuccess(modifier, state.fixedIncomes)
         }
 
-        is FixedIncomeViewModel.UiState.Error -> {}
+        is AssetListViewModel.UiState.Error -> {}
     }
 }
 
 @Composable
-fun FixedIncomeSuccess(modifier: Modifier, assets: List<FixedIncomeAsset>) {
+fun AssetListSuccess(modifier: Modifier, assetDocuments: List<AssetDocument>) {
     Box(modifier = modifier) {
         LazyColumn {
-            items(assets) { asset ->
+            items(assetDocuments) { asset ->
                 ResumeListItem(
                     ResumeListItemData(
                         title = asset.name,
