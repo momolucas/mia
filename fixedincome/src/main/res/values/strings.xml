@@ -1,3 +1,13 @@
 <resources>
     <string name="title_activity_fixed_income">FixedIncomeActivity</string>
+
+    <!-- AssetFormScreen -->
+    <string name="asset_form_label_name">Asset name</string>
+    <string name="asset_form_label_acquisition_date">Acquisition date</string>
+    <string name="asset_form_label_price_at_purchase">Price at purchase</string>
+    <string name="asset_form_label_brokerage">Brokerage</string>
+    <string name="asset_form_label_invested_amount">Invested Amount</string>
+    <string name="asset_form_label_maturity_date">Maturity Date</string>
+    <string name="asset_form_label_status">Status</string>
+    <string name="asset_form_label_yield">Yield</string>
 </resources>

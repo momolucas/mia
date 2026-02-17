@@ -96,6 +96,14 @@ fun ResumeListItem(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
+            Image(
+                painter = painterResource(id = R.drawable.brand_inter),
+                contentDescription = "Logo Corretora",
+                contentScale = ContentScale.Fit,
+                modifier = Modifier
+                    .height(12.dp)
+                    .padding(horizontal = LocalDimens.current.smallPadding)
+            )
             Row {
                 data.secondLineLabel?.let {
                     Text(
@@ -109,22 +117,14 @@ fun ResumeListItem(
                 data.secondLineLabelEnd?.let {
                     Text(
                         text = it,
+                        modifier = Modifier.padding(start = LocalDimens.current.mediumPadding),
                         color = Gain,
                         style = MaterialTheme.typography.bodyMedium,
                         maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.padding(horizontal = 8.dp)
+                        overflow = TextOverflow.Ellipsis
                     )
                 }
             }
-            Image(
-                painter = painterResource(id = R.drawable.brand_inter),
-                contentDescription = "Logo Inter",
-                contentScale = ContentScale.Fit,
-                modifier = Modifier
-                    .height(12.dp)
-                    .padding(horizontal = LocalDimens.current.smallPadding)
-            )
         }
     }
 

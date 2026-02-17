@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_fixed_income">FixedIncomeActivity</string>
+
+    <!-- AssetFormScreen -->
+    <string name="asset_form_label_name">Nome do ativo</string>
+    <string name="asset_form_label_acquisition_date">Data de aquisição</string>
+    <string name="asset_form_label_price_at_purchase">Preço no momento da aquisição</string>
+    <string name="asset_form_label_brokerage">Corretora</string>
+    <string name="asset_form_label_invested_amount">Valor investido</string>
+    <string name="asset_form_label_maturity_date">Data de vencimento</string>
+    <string name="asset_form_label_status">Situação</string>
+    <string name="asset_form_label_yield">Rentabilidade</string>
+
+</resources>

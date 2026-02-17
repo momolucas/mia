@@ -2,7 +2,7 @@ package lucas.momo.designsystem.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Primary = Color(0xFF14213D)
+val Primary = Color(0xFF2D5594)
 val OnPrimary = Color.White
 val Secondary = Color(0xFFD4AF37)
 val DarkOnSecondary = Color.White
