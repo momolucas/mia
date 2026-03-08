@@ -23,8 +23,10 @@ data class Dimensions(
     val iconSizeMedium: Dp = 24.dp,
     val iconSizeLarge: Dp = 32.dp,
 
+    /* Components */
     val buttonHeight: Dp = 48.dp,
-    val appBarHeight: Dp = 56.dp
+    val appBarHeight: Dp = 56.dp,
+    val textFieldHeight: Dp = 54.dp
 )
 
 val LocalDimens = staticCompositionLocalOf { Dimensions() }

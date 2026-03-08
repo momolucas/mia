@@ -6,12 +6,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ErrorOutline
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -20,61 +20,48 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import lucas.momo.designsystem.R
 import lucas.momo.designsystem.theme.LocalDimens
+import lucas.momo.designsystem.utils.transformations.CurrencyVisualTransformation
 
 @Composable
-fun TextField(
+fun CurrencyTextField(
     value: String,
     onValueChange: (String) -> Unit,
     @StringRes label: Int,
     modifier: Modifier = Modifier,
-    isError: Boolean = false,
-    supportingText: String? = null,
+    visualTransformation: CurrencyVisualTransformation = CurrencyVisualTransformation.real(),
 ) {
-    OutlinedTextField(
-        value = value,
-        onValueChange = onValueChange,
-        label = { Text(text = stringResource(label), style = MaterialTheme.typography.bodySmall) },
-        isError = isError,
-        singleLine = true,
-        modifier = modifier,
-        shape = MaterialTheme.shapes.small,
-        maxLines = 1,
-        textStyle = MaterialTheme.typography.bodySmall,
-        colors = defaultOutlinedTextFieldColors(),
-        supportingText = supportingText?.let { { Text(text = it) } },
-    )
-}
+    var hasBeenFocused by remember { mutableStateOf(false) }
 
-@Composable
-fun RequiredTextField(
-    value: String,
-    onValueChange: (String) -> Unit,
-    @StringRes label: Int,
-    modifier: Modifier = Modifier,
-) {
-    var wasFocused by remember { mutableStateOf(false) }
+    val isRequiredError = hasBeenFocused && value.isBlank()
 
-    val isRequiredError = wasFocused && value.isBlank()
+    val onValueChangeFiltered = { newValue: String ->
+        val digitsOnly = newValue.filter { it.isDigit() }
+        onValueChange(digitsOnly)
+    }
 
     OutlinedTextField(
         value = value,
-        onValueChange = { newValue ->
-            if (!wasFocused) wasFocused = true
-            onValueChange(newValue)
-        },
+        onValueChange = onValueChangeFiltered,
         label = { Text(text = stringResource(label), style = MaterialTheme.typography.bodySmall) },
         isError = isRequiredError,
         singleLine = true,
         modifier = modifier
             .fillMaxWidth()
-            .height(LocalDimens.current.textFieldHeight),
+            .height(LocalDimens.current.textFieldHeight)
+            .onFocusChanged { focusState ->
+                if (focusState.isFocused) hasBeenFocused = true
+            },
         shape = MaterialTheme.shapes.small,
         colors = defaultOutlinedTextFieldColors(),
         maxLines = 1,
         textStyle = MaterialTheme.typography.bodySmall,
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        visualTransformation = visualTransformation,
         supportingText = if (isRequiredError) {
             {
                 Row(
@@ -98,14 +85,3 @@ fun RequiredTextField(
         } else null
     )
 }
-
-@Composable
-fun defaultOutlinedTextFieldColors() = OutlinedTextFieldDefaults.colors(
-    focusedBorderColor = MaterialTheme.colorScheme.primary,
-    focusedLabelColor = MaterialTheme.colorScheme.primary,
-    unfocusedBorderColor = MaterialTheme.colorScheme.onBackground,
-    cursorColor = MaterialTheme.colorScheme.primary,
-    errorBorderColor = MaterialTheme.colorScheme.error,
-    errorCursorColor = MaterialTheme.colorScheme.error,
-    errorLabelColor = MaterialTheme.colorScheme.error,
-)

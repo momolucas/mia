@@ -10,4 +10,10 @@
     <string name="asset_form_label_maturity_date">Maturity Date</string>
     <string name="asset_form_label_status">Status</string>
     <string name="asset_form_label_yield">Yield</string>
+
+    <string name="asset_form_label_indexer" translatable="false">Indexer</string>
+    <string name="asset_form_label_interest_and_amortization" translatable="false">Interest and Amortization</string>
+    <string name="asset_form_label_type" translatable="false">Type</string>
+    <string name="asset_form_label_yield_type" translatable="false">Yield Type</string>
+    <string name="asset_form_save" translatable="false">Save</string>
 </resources>

@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.sp
 val Roboto = FontFamily.Default
 
 val Typography = Typography(
-    // Titles
+    /* Titles */
     displayLarge = TextStyle(
         fontFamily = Roboto,
         fontSize = 32.sp,
@@ -29,7 +29,7 @@ val Typography = Typography(
         letterSpacing = 0.sp
     ),
 
-    // Small sections titles
+    /* Small sections titles */
     headlineLarge = TextStyle(
         fontFamily = Roboto,
         fontSize = 22.sp,
@@ -49,7 +49,7 @@ val Typography = Typography(
         letterSpacing = 0.sp
     ),
 
-    // Body text
+    /* Body text */
     bodyLarge = TextStyle(
         fontFamily = Roboto,
         fontSize = 16.sp,
@@ -69,7 +69,7 @@ val Typography = Typography(
         letterSpacing = 0.4.sp
     ),
 
-    // Buttons
+    /* Buttons */
     labelLarge = TextStyle(
         fontFamily = Roboto,
         fontSize = 14.sp,
