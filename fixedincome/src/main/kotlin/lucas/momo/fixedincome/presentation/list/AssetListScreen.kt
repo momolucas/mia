@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import lucas.momo.designsystem.components.ResumeListItem
 import lucas.momo.designsystem.components.ResumeListItemData
-import lucas.momo.designsystem.utils.toBrazilianDate
-import lucas.momo.designsystem.utils.toBrazilianReal
+import lucas.momo.designsystem.utils.extensions.toBrazilianDate
+import lucas.momo.designsystem.utils.extensions.toBrazilianReal
 import lucas.momo.fixedincome.data.model.AssetDocument
 
 @Composable
