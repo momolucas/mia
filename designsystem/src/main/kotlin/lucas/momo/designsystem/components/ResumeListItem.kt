@@ -18,10 +18,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import lucas.momo.designsystem.R
 import lucas.momo.designsystem.ThemePreviews
-import lucas.momo.designsystem.theme.Gain
 import lucas.momo.designsystem.theme.LocalDimens
 import lucas.momo.designsystem.theme.MiaTheme
-import lucas.momo.designsystem.theme.Positive
 
 data class ResumeListItemData(
     val title: String,
@@ -108,7 +106,7 @@ fun ResumeListItem(
                 data.secondLineLabel?.let {
                     Text(
                         text = it,
-                        color = Positive,
+                        color = MaterialTheme.colorScheme.onSurface,
                         style = MaterialTheme.typography.bodyMedium,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
@@ -118,7 +116,7 @@ fun ResumeListItem(
                     Text(
                         text = it,
                         modifier = Modifier.padding(start = LocalDimens.current.mediumPadding),
-                        color = Gain,
+                        color = MaterialTheme.colorScheme.onSurface,
                         style = MaterialTheme.typography.bodyMedium,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis
